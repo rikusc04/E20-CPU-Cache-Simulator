@@ -56,8 +56,7 @@ The cache-enabled simulator (`e20_sim_cache.cpp`) extends this functionality by 
      ```bash
      number_of_rows = size / (associativity × blocksize)
      ```
-   - number_of_rows must be an integer
-   - number_of_rows ≥ 1
+   - number_of_rows must be an integer where number_of_rows ≥ 1
    - If this is not true, the cache cannot be laid out into rows/sets
 4. Associativity cannot exceed the number of blocks
    - The total number of blocks is given by:
