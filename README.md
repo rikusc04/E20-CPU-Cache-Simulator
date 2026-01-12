@@ -72,55 +72,35 @@ The cache-enabled simulator (`e20_sim_cache.cpp`) extends this functionality by 
 
 ## FAQ about E20:
 
-Q: What are the initial values of the registers, the program counter, and the memory cells?
-A: The intital values of the registers is 0, the initial value of the program counter is 0, and the initial value of all the memory cells is 0.
+**Q**: What are the initial values of the registers, the program counter, and the memory cells?
+**A**: The intital values of the registers is 0, the initial value of the program counter is 0, and the initial value of all the memory cells is 0.
 
+**Q**: What should happen if a program sets a register to a value outside of the range expressible as a 16-bit unsigned number? Consider both positive and negative numbers that cannot be expressed in 16 bits.
+**A**: The register will wrap around and take the value that comes next. (If it goes past the maximum number it should wrap around to the minimum number, and if it goes past the minimum number, it should wrap around to the maximum number).
 
-Q: What should happen if a program sets a register to a value outside of the range expressible as a 16-bit unsigned number? Consider both positive and negative numbers that cannot be expressed in 16 bits.
+**Q**: What should happen if a program tries to change the value of $0?
+**A**: The program shouldn't be able to change the vlaue of $0, but it is still valid to write code that attempts to change the value of $0.
 
-A: The register will wrap around and take the value that comes next. (If it goes past the maximum number it should wrap around to the minimum number, and if it goes past the minimum number, it should wrap around to the maximum number).
+**Q**: What should happen if a program uses slt to compare a negative number to a positive number?
+**A**: The program will compare the values as unsigned 16 bit integers, not as 2's complement numbers. This means that the negative number would just be a positive number with an msb of 1.
 
+**Q**: What range of memory address are valid? What should happen if a program tries to read or write a memory cell whose address is outside of the range of valid addresses?
+**A**: The valid range of memory addresses are: 0 - 8191. If a program tries to read or write to a memory cell whose address is outside of the range of valid addresses, it will not be allowed.
 
-Q: What should happen if a program tries to change the value of $0?
+**Q**: What should happen if a program sets the program counter to a value outside of the range of valid addresses?
+**A**: The program counter should take into account the overflow and wrap around to the correct value.
 
-A: The program shouldn't be able to change the vlaue of $0, but it is still valid to write code that attempts to change the value of $0.
+**Q**: What should happen if a program uses a negative immediate value in addi or jeq?
+**A**: The program will still run as intended. The negative immidiate value in addi and jeq is sign extended, so negative numbers are accounted for by the program.
 
+**Q**: What should happen if a program uses a negative immediate value in lw or sw?
+**A**: The program will still run as intended. The negative immidiate value in lw and sw is sign extended, so negative numbers are accounted for by the program.
 
-Q: What should happen if a program uses slt to compare a negative number to a positive number?
+**Q**: What should happen if a program modifies a memory cell containing machine code?
+**A**: The program should allow this to happen. Although this is very uncommon to do becuase it is overwritting a pre-existing instruction, there is no rule stating it cannot be done.
 
-A: The program will compare the values as unsigned 16 bit integers, not as 2's complement numbers. This means that the negative number would just be a positive number with an msb of 1.
+**Q**: What should happen if the program counter reaches the address of the last memory cell?
+**A**: Once the program counter reaches the address of the last memory cell, it should wrap around to the first memory cell for the next instruction (assuming the last memory cell is not a instruction that halts the prgram).
 
-
-Q: What range of memory address are valid? What should happen if a program tries to read or write a memory cell whose address is outside of the range of valid addresses?
-
-A: The valid range of memory addresses are: 0 - 8191. If a program tries to read or write to a memory cell whose address is outside of the range of valid addresses, it will not be allowed.
-
-
-Q: What should happen if a program sets the program counter to a value outside of the range of valid addresses?
-
-A: The program counter should take into account the overflow and wrap around to the correct value.
-
-
-Q: What should happen if a program uses a negative immediate value in addi or jeq?
-
-A: The program will still run as intended. The negative immidiate value in addi and jeq is sign extended, so negative numbers are accounted for by the program.
-
-
-Q: What should happen if a program uses a negative immediate value in lw or sw?
-
-A: The program will still run as intended. The negative immidiate value in lw and sw is sign extended, so negative numbers are accounted for by the program.
-
-
-Q: What should happen if a program modifies a memory cell containing machine code?
-
-A: The program should allow this to happen. Although this is very uncommon to do becuase it is overwritting a pre-existing instruction, there is no rule stating it cannot be done.
-
-
-Q: What should happen if the program counter reaches the address of the last memory cell?
-
-A: Once the program counter reaches the address of the last memory cell, it should wrap around to the first memory cell for the next instruction (assuming the last memory cell is not a instruction that halts the prgram).
-
-
-Q: When should your simulator stop?
-
-A: The simulator should stop if there is an instruction that forces the pc to jump to its current position, also known as the halt instruciton.
+**Q**: When should your simulator stop?
+**A**: The simulator should stop if there is an instruction that forces the pc to jump to its current position, also known as the halt instruciton.
