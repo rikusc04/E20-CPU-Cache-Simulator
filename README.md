@@ -72,7 +72,7 @@ The cache-enabled simulator (`e20_sim_cache.cpp`) extends this functionality by 
 
 ## FAQ about E20:
 
-**Q**: What are the initial values of the registers, the program counter, and the memory cells?
+**Q**: What are the initial values of the registers, the program counter, and the memory cells?  
 **A**: The intital values of the registers is 0, the initial value of the program counter is 0, and the initial value of all the memory cells is 0.
 
 **Q**: What should happen if a program sets a register to a value outside of the range expressible as a 16-bit unsigned number? Consider both positive and negative numbers that cannot be expressed in 16 bits.
