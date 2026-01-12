@@ -47,15 +47,15 @@ The e20_sim_cache.cpp is also based on simulating the E20 processor. The code ha
     > blocksize > 0
 2. Cache size must be divisible by (associativity × blocksize)
    - Formula:
-   > number_of_rows = size / (associativity × blocksize)
+       > number_of_rows = size / (associativity × blocksize)
    - number_of_rows must be an integer
    - number_of_rows ≥ 1
    - If this is not true, the cache cannot be laid out into rows/sets
 3. Associativity cannot exceed the number of blocks
    - The total number of blocks is given by:
-   > blocks = size / blocksize
+       > blocks = size / blocksize
    - So, you must have:
-   > associativity ≤ blocks
+       > associativity ≤ blocks
 4. Although the simulators themselves do not have any check to validate whether a valid cache configuration was used, the simulators are desgined to work with the three rules listed above.
 5. In addiiton, the L1 and L2 caches are validated independently. And although there is no requirement that L2 be larger than L1, the test cases provided generally assume it is
 
