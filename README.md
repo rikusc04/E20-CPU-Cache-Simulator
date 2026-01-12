@@ -91,5 +91,5 @@ A: The program should allow this to happen. Although this is very uncommon to do
 Q: What should happen if the program counter reaches the address of the last memory cell?
 A: Once the program counter reaches the address of the last memory cell, it should wrap around to the first memory cell for the next instruction (assuming the last memory cell is not a instruction that halts the prgram).
 
-A: When should your simulator stop?
-Q: The simulator should stop if there is an instruction that forces the pc to jump to its current position, also known as the halt instruciton.
+Q: When should your simulator stop?
+A: The simulator should stop if there is an instruction that forces the pc to jump to its current position, also known as the halt instruciton.
