@@ -6,12 +6,12 @@ The e20_sim_cache.cpp is also based on simulating the E20 processor. The code ha
 # Building & Running the E20 Simulator
 - Navigate to /tests to find the respective tests for validating the behavior of e20_sim (found in /tests/e20_sim_tests) and e20_sim_cache (found in /tests/e20_sim_cache_tests)
 1. **To build both of the E20 Simulators, compile the .cpp files:**
-    ```bash
-    g++ -std=c++14 -O2 e20_sim.cpp -o e20_sim
-    ```
-    ```bash
-    g++ -std=c++14 -O2 e20_sim_cache.cpp -o e20_sim_cache
-    ```
+        ```bash
+        g++ -std=c++14 -O2 e20_sim.cpp -o e20_sim
+        ```
+        ```bash
+        g++ -std=c++14 -O2 e20_sim_cache.cpp -o e20_sim_cache
+        ```
     - Note: This project was creating using C++14, but can compile with later versions and some earlier versions
 2. **To run the e20_sim, use command:**
     ```bash
