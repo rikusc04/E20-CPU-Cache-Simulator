@@ -1,4 +1,4 @@
-# E20-Processor-Simulator
+# E20-CPU-Cache-Simulator
 
 ## Overview
 This project implements a simulator for the E20 processor, a teaching ISA commonly used in university Computer Architecture courses. The simulator executes E20 machine code by modeling registers, memory, and control flow exactly as defined in the E20 manual.
