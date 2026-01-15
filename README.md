@@ -8,7 +8,6 @@ The base simulator (`e20_sim.cpp`) loads a machine-code program into memory, ini
 The cache-enabled simulator (`e20_sim_cache.cpp`) extends this functionality by adding support for configurable cache hierarchies. It simulates one or two cache levels (L1 and optional L2), logs cache hits, misses, and store operations, and updates cache state on each memory access.
 
 ## Building & Running the E20 Simulator
-- Navigate to the `/tests` directory to find the respective tests for validating the behavior of `e20_sim.cpp` (found in `/tests/e20_sim_tests`) and `e20_sim_cache.cpp` (found in `/tests/e20_sim_cache_tests`)
 1. **To build both of the E20 Simulators, compile the .cpp files:**
     ```bash
     g++ -std=c++14 -O2 e20_sim.cpp -o e20_sim
@@ -16,7 +15,7 @@ The cache-enabled simulator (`e20_sim_cache.cpp`) extends this functionality by 
     ```bash
     g++ -std=c++14 -O2 e20_sim_cache.cpp -o e20_sim_cache 
     ```
-    - Note: This project was creating using C++14, but can compile with later versions and some earlier versions
+    - Note: This project was created using C++14, but can compile with later versions and some earlier versions
 2. **To run the e20_sim, use command:**
     ```bash
     ./e20_sim ./tests/e20_sim_tests/loop3.bin
@@ -43,6 +42,8 @@ The cache-enabled simulator (`e20_sim_cache.cpp`) extends this functionality by 
          ```bash
          ./e20_sim_cache ./tests/e20_sim_cache_tests/{test_name}.bin --cache size1,associativity1,blocksize1,size2,associativity2,blocksize2
          ```
+- Navigate to the `/tests` directory to find the respective tests for validating the behavior of `e20_sim.cpp` (found in `/tests/e20_sim_tests`) and `e20_sim_cache.cpp` (found in `/tests/e20_sim_cache_tests`)
+- The expected final state of the program is documented as comments at the end of each assembly file (.s) for reference when validating the E20 simulator output
 
 ## What is a valid cache configuration?
 1. For each cache level, the following must hold true:
@@ -67,8 +68,8 @@ The cache-enabled simulator (`e20_sim_cache.cpp`) extends this functionality by 
      ```bash
      associativity ≤ blocks
      ```
-5. Although the simulators themselves do not have any check to validate whether a valid cache configuration was used, the simulators are desgined to work with the three rules listed above.
-6. In addiiton, the L1 and L2 caches are validated independently. And although there is no requirement that L2 be larger than L1, the test cases provided generally assume it is
+5. Although the simulators themselves do not have any check to validate whether a valid cache configuration was used, the simulators are designed to work with the three rules listed above.
+6. In addition, the L1 and L2 caches are validated independently. And although there is no requirement that L2 be larger than L1, the test cases provided generally assume it is
 
 ## FAQ about E20:
 
@@ -91,16 +92,16 @@ The cache-enabled simulator (`e20_sim_cache.cpp`) extends this functionality by 
 **A**: The program counter should take into account the overflow and wrap around to the correct value.
 
 **Q**: What should happen if a program uses a negative immediate value in addi or jeq?  
-**A**: The program will still run as intended. The negative immidiate value in addi and jeq is sign extended, so negative numbers are accounted for by the program.
+**A**: The program will still run as intended. The negative immediate value in addi and jeq is sign extended, so negative numbers are accounted for by the program.
 
 **Q**: What should happen if a program uses a negative immediate value in lw or sw?  
 **A**: The program will still run as intended. The negative immidiate value in lw and sw is sign extended, so negative numbers are accounted for by the program.
 
 **Q**: What should happen if a program modifies a memory cell containing machine code?  
-**A**: The program should allow this to happen. Although this is very uncommon to do becuase it is overwritting a pre-existing instruction, there is no rule stating it cannot be done.
+**A**: The program should allow this to happen. Although this is very uncommon to do becuase it is overwriting a pre-existing instruction, there is no rule stating it cannot be done.
 
 **Q**: What should happen if the program counter reaches the address of the last memory cell?  
-**A**: Once the program counter reaches the address of the last memory cell, it should wrap around to the first memory cell for the next instruction (assuming the last memory cell is not a instruction that halts the prgram).
+**A**: Once the program counter reaches the address of the last memory cell, it should wrap around to the first memory cell for the next instruction (assuming the last memory cell is not a instruction that halts the program).
 
 **Q**: When should your simulator stop?  
 **A**: The simulator should stop if there is an instruction that forces the pc to jump to its current position, also known as the halt instruciton.
