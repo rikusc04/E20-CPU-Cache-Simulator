@@ -7,6 +7,10 @@ The base simulator (`e20_sim.cpp`) loads a machine-code program into memory, ini
 
 The cache-enabled simulator (`e20_sim_cache.cpp`) extends this functionality by adding support for configurable cache hierarchies. It simulates one or two cache levels (L1 and optional L2), logs cache hits, misses, and store operations, and updates cache state on each memory access.
 
+## Relationship to the E20 Assembler
+- This simulator executes E20 **machine-code programs** (`.bin` files). These `.bin` files are typically generated using a companion two-pass E20 assembler, which translates E20 assembly language (`.s`) into executable machine code suitable for simulation.
+- The E20 assembler used with this simulator can be found here: https://github.com/rikusc04/E20-Assembler
+
 ## Building & Running the E20 Simulator
 1. **To build both of the E20 Simulators, compile the .cpp files:**
     ```bash
