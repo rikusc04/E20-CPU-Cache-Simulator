@@ -43,7 +43,7 @@ The cache-enabled simulator (`e20_sim_cache.cpp`) extends this functionality by 
          ./e20_sim_cache ./tests/e20_sim_cache_tests/{test_name}.bin --cache size1,associativity1,blocksize1,size2,associativity2,blocksize2
          ```
 - Navigate to the `/tests` directory to find the respective tests for validating the behavior of `e20_sim.cpp` (found in `/tests/e20_sim_tests`) and `e20_sim_cache.cpp` (found in `/tests/e20_sim_cache_tests`)
-- The expected final state of the program is documented as comments at the end of each assembly file (.s) for reference when validating the E20 simulator output
+- The expected final state of the program is documented as comments at the end of each assembly file (`.s`) for reference when validating the E20 simulator output
 
 ## What is a valid cache configuration?
 1. For each cache level, the following must hold true:
