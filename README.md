@@ -8,7 +8,7 @@ The base simulator (`e20_sim.cpp`) loads a machine-code program into memory, ini
 The cache-enabled simulator (`e20_sim_cache.cpp`) extends this functionality by adding support for configurable cache hierarchies. It simulates one or two cache levels (L1 and optional L2), logs cache hits, misses, and store operations, and updates cache state on each memory access.
 
 ## Building & Running the E20 Simulator
-- Navigate to the `/tests` directory to find the respective tests for validating the behavior of e20_sim (found in `/tests/e20_sim_tests`) and e20_sim_cache (found in `/tests/e20_sim_cache_tests`)
+- Navigate to the `/tests` directory to find the respective tests for validating the behavior of `e20_sim.cpp` (found in `/tests/e20_sim_tests`) and `e20_sim_cache.cpp` (found in `/tests/e20_sim_cache_tests`)
 1. **To build both of the E20 Simulators, compile the .cpp files:**
     ```bash
     g++ -std=c++14 -O2 e20_sim.cpp -o e20_sim
