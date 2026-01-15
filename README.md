@@ -22,9 +22,9 @@ The cache-enabled simulator (`e20_sim_cache.cpp`) extends this functionality by 
     ./e20_sim ./tests/e20_sim_tests/loop3.bin
     ```
     - More generally:
-     ```bash
-     ./e20_sim ./tests/e20_sim_tests/{test_name}.bin
-     ```
+         ```bash
+         ./e20_sim ./tests/e20_sim_tests/{test_name}.bin
+         ```
     - Note that the test must be a .bin file, not a .s file
 3. **To run the e20_sim_cache using 1 cache (L1 cache), use command:**
     ```bash
@@ -32,17 +32,17 @@ The cache-enabled simulator (`e20_sim_cache.cpp`) extends this functionality by 
     ```
     - This program must always use at least 1 cache (L1 cache); this is the standard way to run the program
     - More generally, the command is given by:
-     ```bash
-     ./e20_sim_cache ./tests/e20_sim_cache_tests/{test_name}.bin --cache size,associativity,blocksize
-     ```
+         ```bash
+         ./e20_sim_cache ./tests/e20_sim_cache_tests/{test_name}.bin --cache size,associativity,blocksize
+         ```
 4. **To run the e20_sim_cache using 2 caches (L1 cache and L2 cache), use command:**
     ```bash
     ./e20_sim_cache ./tests/e20_sim_cache_tests/test.bin --cache 2,1,1,8,4,2
     ```
     - More generally, the command is given by:
-     ```bash
-     ./e20_sim_cache ./tests/e20_sim_cache_tests/{test_name}.bin --cache size1,associativity1,blocksize1,size2,associativity2,blocksize2
-     ```
+         ```bash
+         ./e20_sim_cache ./tests/e20_sim_cache_tests/{test_name}.bin --cache size1,associativity1,blocksize1,size2,associativity2,blocksize2
+         ```
 
 ## What is a valid cache configuration?
 1. For each cache level, the following must hold true:
